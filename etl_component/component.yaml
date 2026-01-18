@@ -15,3 +15,4 @@ component:
   behavior:
     type: transformation
     engine: platform-runtime
+
