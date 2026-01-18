@@ -18,7 +18,20 @@ jobs:
         run: |
           tar -czf etl-component-${{ github.ref_name }}.tar.gz etl-component/
 
+      - name: Upload TAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: etl-component-tar
+          path: etl-component-*.tar.gz
+
       - name: Build OCI image
         run: |
           docker build -t etl-component:${{ github.ref_name }} .
+        
+      - name: Push OCI image
+        run: |
+            docker tag etl-component:${{ github.ref_name }} \
+              bindumounica87/etl-component:${{ github.ref_name }}
+        
+            docker push bindumounica87/etl-component:${{ github.ref_name }}
 
