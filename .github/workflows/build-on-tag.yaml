@@ -27,6 +27,12 @@ jobs:
       - name: Build OCI image
         run: |
           docker build -t etl-component:${{ github.ref_name }} .
+
+      - name: Login to Docker Hub
+        run: |
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+              -u ${{ secrets.DOCKERHUB_USERNAME }} \
+              --password-stdin
         
       - name: Push OCI image
         run: |
@@ -35,3 +41,9 @@ jobs:
         
             docker push bindumounica87/etl-component:${{ github.ref_name }}
 
+      - name: Tag and push image
+        run: |
+              docker tag etl-component:${{ github.ref_name }} \
+                bindumounica87/etl-component:${{ github.ref_name }}
+          
+              docker push bindumounica87/etl-component:${{ github.ref_name }}
