@@ -1,0 +1,26 @@
+name: Build ETL Component from Ab Initio Graphs
+
+on:
+  push:
+    tags:
+      - "graph-*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build ETL component
+        run: |
+          python3 buildctl.py
+
+      - name: Package TAR
+        run: |
+          tar -czf etl-component-${{ github.ref_name }}.tar.gz etl-component/
+
+      - name: Build OCI image
+        run: |
+          docker build -t etl-component:${{ github.ref_name }} .
+
