@@ -1,0 +1,7 @@
+project:
+  name: abinitio-etl-platform
+  environment: dev
+
+graphs:
+  - name: user_flow
+    path: graphs/user_flow

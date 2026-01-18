@@ -1,0 +1,17 @@
+component:
+  name: UserFlowETL
+  version: 1.0.0
+  description: ETL component generated from Ab Initio orchestration graphs
+  runtime: container
+
+  inputs:
+    - name: input_dataset
+      type: dataset
+
+  outputs:
+    - name: output_dataset
+      type: dataset
+
+  behavior:
+    type: transformation
+    engine: platform-runtime
