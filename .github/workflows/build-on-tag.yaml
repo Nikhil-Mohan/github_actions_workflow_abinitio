@@ -1,9 +1,7 @@
 name: Build ETL Component from Ab Initio Graphs
 
 on:
-  push:
-    tags:
-      - "graph-*"
+  push
 
 jobs:
   build:
