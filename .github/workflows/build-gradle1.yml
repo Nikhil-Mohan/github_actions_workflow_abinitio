@@ -1,9 +1,7 @@
 name: Build ETL Component from Ab Initio Graphs (Gradle – Actions Only)
 
 on:
-  push:
-    tags:
-      - "graph-*"
+  push
 
 jobs:
   build:
