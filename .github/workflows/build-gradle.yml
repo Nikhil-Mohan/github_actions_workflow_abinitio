@@ -18,6 +18,13 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Debug list build directory
+        run: |
+            pwd
+            ls -l
+            ls -l build
+            ls -l build/generate_component.sh        
+
       - name: Generate Gradle Wrapper
         run: |
           gradle wrapper --gradle-version 8.6
