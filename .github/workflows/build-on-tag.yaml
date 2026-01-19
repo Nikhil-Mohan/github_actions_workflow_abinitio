@@ -40,4 +40,3 @@
 #                 bindumounica87/etl-component:${{ github.ref_name }}
           
 #               docker push bindumounica87/etl-component:${{ github.ref_name }}
-              
