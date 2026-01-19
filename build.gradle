@@ -26,9 +26,10 @@ tasks.register('compileGraphs', Exec) {
 tasks.register('generateEtlComponent', Exec) {
     description = 'Generate ETL component from graphs'
     dependsOn compileGraphs
-    commandLine 'bash', 'build/generate_component.sh',
-            graphName,
-            "dist/${graphName}"
+    commandLine 'bash',
+        "${projectDir}/scripts/generate_component.sh",
+        graphName,
+        "${projectDir}/dist/${graphName}"
 }
 
 /**
