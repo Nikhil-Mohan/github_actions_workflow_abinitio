@@ -1,3 +1,5 @@
+# This is for python based buildctl.py
+# If you want to run this move this file to .github/workflows/build-on-tag.yaml.
 name: Build ETL Component from Ab Initio Graphs
 
 on:
