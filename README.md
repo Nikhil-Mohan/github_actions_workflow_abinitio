@@ -23,3 +23,17 @@ bin/gradle.bat
 bin/gradle-wrapper-*.jar
 
 **GitHub Actions are reusable, versioned automation units that standardize CI/CD tasks, allowing teams to focus on build logic rather than environment setup.**
+
+Step3: If you want to trigger the workflow based on the tags.
+
+Change the workflow: build-gradle.yml from
+
+on: push to 
+
+on: 
+
+    push:
+
+    tags:
+
+    - "graph-*"
