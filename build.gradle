@@ -8,6 +8,26 @@ ext {
     imageName = "bindumounica87/etl-component"
 }
 
+sonarqube {
+    properties {
+        property "sonar.projectKey", "github_actions_workflow_abinitio_etl-component-gradle"
+        property "sonar.projectName", "AbInitio ETL Platform"
+        property "sonar.sourceEncoding", "UTF-8"
+
+        // 👇 What Sonar should scan
+        property "sonar.sources", "graphs,scripts,etl-component"
+
+        // 👇 Exclude generated & binary junk
+        property "sonar.exclusions",
+                "**/dist/**," +
+                "**/build/**," +
+                "**/*.tar.gz"
+
+        // 👇 This is NOT a Java project
+        property "sonar.language", "py,shell"
+    }
+}
+
 /**
  * 1. Compile / collect Ab Initio graphs (mocked for POC)
  */
