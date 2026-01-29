@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abnitio-etl-component
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: abnitio-etl-component
+  template:
+    metadata:
+      labels:
+        app: abnitio-etl-component
+    spec:
+      containers:
+      - image: docker.io/bindumounica87/etl-component:graph-user-flow-v1.1.1
+        name: abnitio-etl-component
+        ports:
+        - containerPort: 80
