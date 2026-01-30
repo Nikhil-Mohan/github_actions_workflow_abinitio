@@ -6,8 +6,8 @@ spec:
   backoffLimit: 0
   template:
     metadata:
-    matchLabels:
-      app: abnitio-etl-component
+      labels:
+        app: abnitio-etl-component
     spec:
       restartPolicy: Never
       containers:
